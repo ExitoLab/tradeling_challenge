@@ -1,0 +1,9 @@
+
+**/.terraform/*
+*.tfplan.*
+
+# /tfstates files
+*.tfstates
+*.tfstates.*
+
+**/.vscode/*
