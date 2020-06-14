@@ -24,3 +24,24 @@ module "challenge_vpc" {
     "kubernetes.io/role/elb" = true
   }
 }
+
+
+resource "aws_security_group" "k8s-common-http-challenge" {
+  name   = "dev_k8s_common_http"
+  vpc_id = module.challenge_vpc.vpc_id
+  tags   = local.tags
+
+  ingress {
+    from_port   = 80
+    protocol    = "tcp"
+    to_port     = 80
+    cidr_blocks = local.ingress_ips
+  }
+
+  ingress {
+    from_port   = 443
+    protocol    = "tcp"
+    to_port     = 443
+    cidr_blocks = local.ingress_ips
+  }
+}
