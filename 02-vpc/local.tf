@@ -4,7 +4,7 @@ locals {
 
   kops_state_bucket_name = "${local.environment}-kops-state"
   // Needs to be a FQDN
-  kubernetes_cluster_name = "k8s-dev0.domain.com"
+  kubernetes_cluster_name = "k8.compactslabs.com.ng"
   ingress_ips             = ["10.0.80.0/24", "10.0.81.0/24"]
 
   tags = {

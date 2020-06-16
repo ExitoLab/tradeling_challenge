@@ -45,3 +45,26 @@ resource "aws_security_group" "k8s-common-http-challenge" {
     cidr_blocks = local.ingress_ips
   }
 }
+
+resource "aws_route53_zone" "main-k8-domain" {
+  name = "compactslabs.com.ng"
+
+  tags = {
+    Environment = "dev"
+    terraform   = true
+  }
+}
+
+resource "aws_route53_record" "k8-domain-ns" {
+  zone_id = aws_route53_zone.main-k8-domain.zone_id
+  name    = "k8.compactslabs.com.ng"
+  type    = "NS"
+  ttl     = "30"
+
+  records = [
+    "${aws_route53_zone.main-k8-domain.name_servers.0}",
+    "${aws_route53_zone.main-k8-domain.name_servers.1}",
+    "${aws_route53_zone.main-k8-domain.name_servers.2}",
+    "${aws_route53_zone.main-k8-domain.name_servers.3}",
+  ]
+}
