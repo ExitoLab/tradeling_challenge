@@ -45,3 +45,33 @@ resource "aws_security_group" "k8s-common-http-challenge" {
     cidr_blocks = local.ingress_ips
   }
 }
+
+resource "aws_route53_zone" "main-k8-domain" {
+  name = "compactslabs.com.ng"
+
+  tags = {
+    Environment = "dev"
+    terraform   = true
+  }
+}
+
+resource "aws_route53_record" "k8-domain-ns" {
+  zone_id = aws_route53_zone.main-k8-domain.zone_id
+  name    = "k8.compactslabs.com.ng"
+  type    = "NS"
+  ttl     = "30"
+
+  records = [
+    "${aws_route53_zone.main-k8-domain.name_servers.0}",
+    "${aws_route53_zone.main-k8-domain.name_servers.1}",
+    "${aws_route53_zone.main-k8-domain.name_servers.2}",
+    "${aws_route53_zone.main-k8-domain.name_servers.3}",
+  ]
+}
+
+
+#create key pair on aws
+resource "aws_key_pair" "deployer" {
+  key_name   = "tradeling-challenge-key"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDDp9LF97+TyzHcCOoV9t4FfByZCoZsIM1rB1eNRTWSojoNn2I2ha1l5K4q7+iK5+2hDRlJt2EtBbz0JV4TtmGX7F24lm6bP85FYrCXl2ZLTrPUkjeXj9Bchl8wZ5FSKClycS9rWW4q4LfeGtW1MW19gHBToEvNry6lrxzfdMDY3I+Ul3uo1dDSYYlXF7Zm6DZV447cjFUvvZIL8ETOioFVHWmfv8q30PrcV3oh9DyaA1l/ssfXKMbURqMj0cY1MgXxiBPv6zPOYl2vfEgsy/0yBmuXd82F/FCLDHj64uuPCcolNdsXdMsoHA46wIB/envOCOZzzJLGwM+oH+pdHd/uPQexeTwJ9Lptlyq4tVCzXruu7A6/bxa8pyPKuwXH/1xGoaa5L4JEaXQkVkqN8oxRzyEXWuYpVHhKMAeYS2bHV9kTsg0hOutdkdcDZsMAlKPe5JkYuMugni8oRp1SpVRNGw2CMm+XvLmhh6q4MMen5MHGbyxiGs4ifmEiCMDHWys= djohn@djohn"
+}
