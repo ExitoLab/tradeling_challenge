@@ -7,3 +7,6 @@
 *.tfstates.*
 
 **/.vscode/*
+
+# Ignore private key
+*.tradeling-challenge*
