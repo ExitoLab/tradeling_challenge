@@ -8,7 +8,7 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket         = "bucket-challenge"
-    key            = "terraform.tfstate"
+    key            = "key/terraform.tfstate"
     region         = "eu-west-1"
     encrypt        = true
     dynamodb_table = "challenge-lock"

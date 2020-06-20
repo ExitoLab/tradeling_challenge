@@ -9,4 +9,200 @@
 **/.vscode/*
 
 # Ignore private key
-*.tradeling-challenge*
+*.tradeling-challenge
+
+/* Got this from kubespray public repo */
+kubespray/.vagrant
+*.retry
+**/vagrant_ansible_inventory
+kubespray/temp
+*/.idea
+.tox
+.cache
+*.bak
+*.tfstate
+*.tfstate.backup
+.terraform/
+*/contrib/terraform/aws/credentials.tfvars
+kubespray//ssh-bastion.conf
+**/*.sw[pon]
+*~
+kubespray/vagrant/
+
+# Byte-compiled / optimized / DLL files
+kubespray/__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+kubespray/env/
+kubespray/build/
+kubespray/credentials/
+kubespray/develop-eggs/
+kubespray/dist/
+kubespray/downloads/
+kubespray/eggs/
+.eggs/
+kubespray/parts/
+kubespray/sdist/
+kubespray/var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+kubespray/pip-log.txt
+kubespraypip-delete-this-directory.txt
+
+# Unit test / coverage reports
+kubespray/htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+kubespray/nosetests.xml
+kubespray/coverage.xml
+*,cover
+.hypothesis/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+kubespray/local_settings.py
+
+# Flask stuff:
+kubespray/instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+kubespray/docs/*
+
+# PyBuilder
+kubespray/target/
+
+# IPython Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version.vagrant
+*.retry
+**/vagrant_ansible_inventory
+kubespray/temp/*
+.idea
+.tox
+.cache
+*.bak
+*.tfstate
+*.tfstate.backup
+kubespray/.terraform/
+kubespray/contrib/terraform/aws/credentials.tfvars
+kubespray/ssh-bastion.conf
+**/*.sw[pon]
+*~
+kubespray/vagrant/
+
+# Ansible inventory
+kubespray/inventory/*
+kubespray/inventory/hosts
+!kubespray/inventory/local
+!kubespray/inventory/sample
+kubespray/inventory/*/artifacts/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+env/
+build/
+credentials/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+.hypothesis/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# IPython Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# dotenv
+.env
+
+# virtualenv
+venv/
+ENV/
+
+
+# dotenv
+.env
+
+# virtualenv
+venv/
+ENV/
+credentials.tfvars
