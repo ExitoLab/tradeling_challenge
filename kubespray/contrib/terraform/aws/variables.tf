@@ -22,12 +22,13 @@ variable "aws_cluster_name" {
   description = "Name of AWS Cluster"
 }
 
+#- Centos 7, replace 'data "aws_ami" "distro"' in variables.tf with
 data "aws_ami" "distro" {
   most_recent = true
 
   filter {
     name   = "name"
-    values = ["CoreOS-stable-*"]
+    values = ["dcos-centos7-*"]
   }
 
   filter {
@@ -35,7 +36,7 @@ data "aws_ami" "distro" {
     values = ["hvm"]
   }
 
-  owners = ["595879546273"] #CoreOS
+  owners = ["688023202711"]
 }
 
 //AWS VPC Variables

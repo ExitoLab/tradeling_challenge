@@ -24,7 +24,7 @@ kubespray/temp
 *.tfstate.backup
 .terraform/
 */contrib/terraform/aws/credentials.tfvars
-kubespray//ssh-bastion.conf
+kubespray/ssh-bastion.conf
 **/*.sw[pon]
 *~
 kubespray/vagrant/
