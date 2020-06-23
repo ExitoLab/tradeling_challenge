@@ -30,13 +30,13 @@
 - name: Write docker options systemd drop-in
   template:
     src: docker-options.conf.j2
-    dest: "/etc/systemd/system/docker.service.d/docker-options.conf"
+    dest: /etc/systemd/system/docker.service.d/docker-options.conf
   notify: restart docker
 
 - name: Write docker dns systemd drop-in
   template:
     src: docker-dns.conf.j2
-    dest: "/etc/systemd/system/docker.service.d/docker-dns.conf"
+    dest: /etc/systemd/system/docker.service.d/docker-dns.conf
   notify: restart docker
   when: dns_mode != 'none' and resolvconf_mode == 'docker_dns'
 
@@ -50,7 +50,7 @@
 - name: Write docker orphan clean up systemd drop-in
   template:
     src: docker-orphan-cleanup.conf.j2
-    dest: "/etc/systemd/system/docker.service.d/docker-orphan-cleanup.conf"
+    dest: /etc/systemd/system/docker.service.d/docker-orphan-cleanup.conf
   notify: restart docker
   when: docker_orphan_clean_up | bool
 

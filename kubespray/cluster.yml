@@ -16,7 +16,7 @@
           NO_PROXY: "{{ no_proxy | default ('') }}"
       no_log: true
 
-- hosts: bastion[0]
+- hosts: bastion
   gather_facts: False
   roles:
     - { role: kubespray-defaults }
