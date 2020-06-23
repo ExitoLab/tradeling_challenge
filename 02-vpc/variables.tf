@@ -16,8 +16,8 @@ variable "profile" {
   description = "Profile"
 }
 
-variable "vpc_name" {
-  type        = string
-  default     = "challenge_vpc"
-  description = "Description of the vpc"
-}
+// variable "vpc_name" {
+//   type        = string
+//   default     = "challenge_vpc"
+//   description = "Description of the vpc"
+// }
