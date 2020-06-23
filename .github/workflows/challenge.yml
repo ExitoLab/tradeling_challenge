@@ -2,15 +2,11 @@ name: challenge-app - Build and Publish to ECR
 on: 
   push:
     paths:
-    - 'app/**'
-    - '.github/workflows/challenge-app.yml'
-  schedule:
-    - cron: '0 1 * * *'
-
+    - 'app'
+    - '.github/workflows/challenge.yml'
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
