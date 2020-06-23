@@ -401,7 +401,7 @@ minimatch@^3.0.4:
     brace-expansion "^1.1.7"
 
 minimist@~0.0.1:
-  version "0.0.10"
+  version "0.2.1"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.10.tgz#de3f98543dbf96082be48ad1a0c7cda836301dcf"
   integrity sha1-3j+YVD2/lggr5IrRoMfNqDYwHc8=
 
