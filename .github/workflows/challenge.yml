@@ -2,7 +2,7 @@ name: challenge-app - Build and Publish to ECR
 on: 
   push:
     paths:
-    - 'app'
+    - 'app/**'
     - '.github/workflows/challenge.yml'
 
 jobs:
