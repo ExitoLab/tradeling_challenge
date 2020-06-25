@@ -1,10 +1,10 @@
 {
   "name": "todo-app",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "description": "Todo App",
-  "main": "app.js",
+  "main": "nodemon --exec babel-node app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "nodemon --exec babel-node app.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -14,8 +14,14 @@
     "express-handlebars": "^3.1.0",
     "express-session": "^1.17.0",
     "method-override": "^3.0.0",
-    "mongoose": "^5.7.7",
+    "mongoose": "^5.9.20",
+    "nodemon": "^2.0.4",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.3",
+    "@babel/node": "^7.10.3",
+    "@babel/preset-env": "^7.10.3"
   }
 }

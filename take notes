@@ -1,0 +1,71 @@
+take notes 
+
+
+Rename the hosts
+
+cp -avr inventory/sample inventory/mycluster
+
+eval $(ssh-agent)
+ssh-add -D
+ssh-add /home/djohn/Desktop/Toks/tradeling-challenge
+ansible-playbook -i ./inventory/hosts ./cluster.yml -e ansible_user=centos --become --private-key=/home/djohn/Desktop/Toks/tradeling-challenge -e bootstrap_os=centos -b --become-user=root --flush-cache
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[all]
+kube-master-1 ansible_host=ip-10-250-203-223.eu-west-1.compute.internal ansible_user=centos
+kube-master-2 ansible_host=ip-10-250-219-4.eu-west-1.compute.internal  ansible_user=centos
+kube-node-1 ansible_host=ip-10-250-196-132.eu-west-1.compute.internal ansible_user=centos
+kube-node-2 ansible_host=ip-10-250-212-97.eu-west-1.compute.internal ansible_user=centos
+kube-node-3 ansible_host=ip-10-250-197-217.eu-west-1.compute.internal ansible_user=centos
+kube-etc-1 ansible_host=ip-10-250-204-27.eu-west-1.compute.internal ansible_user=centos
+kube-etc-2 ansible_host=ip-10-250-215-80.eu-west-1.compute.internal  ansible_user=centos
+kube-etc-3 ansible_host=ip-10-250-197-21.eu-west-1.compute.internal ansible_user=centos
+bastion-0 ansible_host=ec2-54-194-247-72.eu-west-1.compute.amazonaws.com ansible_user=centos
+bastion-1 ansible_host=ec2-54-229-62-197.eu-west-1.compute.amazonaws.com ansible_user=centos
+
+[bastion]
+bastion ansible_host=ec2-54-194-247-72.eu-west-1.compute.amazonaws.com
+bastion ansible_host=ec2-54-229-62-197.eu-west-1.compute.amazonaws.com
+
+[kube-master]
+kube-master-1
+kube-master-2
+
+[etcd]
+kube-etc-1
+kube-etc-2
+kube-etc-3
+
+[kube-node]
+kube-node-1
+kube-node-2
+kube-node-3
+
+[calico-rr]
+
+[k8s-cluster:children]
+kube-node
+kube-master
+calico-rr
+
+[k8s-cluster:vars]
+apiserver_loadbalancer_domain_name="kubernetes-elb-tradeling-2121397581.eu-west-1.elb.amazonaws.com"

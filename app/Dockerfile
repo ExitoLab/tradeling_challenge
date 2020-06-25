@@ -1,12 +1,17 @@
 FROM node:12-alpine 
 
+RUN mkdir -p /home/node/app
+
 WORKDIR /home/node/app
 
-COPY package.json /home/node/app
+COPY package*.json /home/node/app/
 
-RUN cd /home/node/app && npm install && npm cache clean --force --loglevel=error
+RUN cd /home/node/app && npm install --only=production
 
-COPY . .
+COPY . /home/node/app
+
+RUN ls -la
 
 EXPOSE 3000
+
 CMD ["npm", "start"]
