@@ -1,10 +1,11 @@
 // server start: nodemon app.js
 // load routes
+import users from "./routes/users";
 import todos from "./routes/todos";
 // db config
 import db from "./config/database";
 import config from "./config/passport";
-import users from "./routes/users";
+
 import passport from "passport";
 import mongoose from "mongoose";
 import session from "express-session";
@@ -14,6 +15,13 @@ import bodyParser from "body-parser";
 import exphbs from "express-handlebars";
 import path from "path";
 import express from "express";
+
+// mongoose.connect('mongodb://localhost/tododb'); 
+// // require('./models/User'); 
+// // require('./models/Todo');  
+
+// var routes = require('./routes/index');
+// var users = require('./routes/users');
 
 const app = express();
 // passport config
@@ -79,7 +87,10 @@ app.get('/', (req, res) => {
 
 app.get('/about', (req, res) => {
   res.render('about');
-});
+});// use routes
+// app.use('/users', users);
+// app.use('/todos', todos);
+
 
 
 // use routes
