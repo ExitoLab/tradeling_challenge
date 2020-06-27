@@ -1,0 +1,39 @@
+[all]
+ip-10-250-203-204.eu-west-1.compute.internal ansible_host=10.250.203.204 ansible_use=centos
+ip-10-250-209-79.eu-west-1.compute.internal ansible_host=10.250.209.79 ansible_use=centos
+ip-10-250-193-83.eu-west-1.compute.internal ansible_host=10.250.193.83 ansible_use=centos
+ip-10-250-214-80.eu-west-1.compute.internal ansible_host=10.250.214.80 ansible_use=centos
+ip-10-250-198-197.eu-west-1.compute.internal ansible_host=10.250.198.197 ansible_use=centos
+ip-10-250-200-22.eu-west-1.compute.internal ansible_host=10.250.200.22 ansible_use=centos
+ip-10-250-221-159.eu-west-1.compute.internal ansible_host=10.250.221.159 ansible_use=centos
+ip-10-250-193-47.eu-west-1.compute.internal ansible_host=10.250.193.47 ansible_use=centos
+bastion ansible_host=ec2-3-250-167-33.eu-west-1.compute.amazonaws.com ansible_use=centos
+
+[bastion]
+bastion ansible_host=3-250-167-33.eu-west-1.compute.amazonaws.com 
+
+[kube-master]
+ip-10-250-203-204.eu-west-1.compute.internal
+ip-10-250-209-79.eu-west-1.compute.internal
+
+
+[kube-node]
+ip-10-250-193-83.eu-west-1.compute.internal
+ip-10-250-214-80.eu-west-1.compute.internal
+ip-10-250-198-197.eu-west-1.compute.internal
+
+
+[etcd]
+ip-10-250-200-22.eu-west-1.compute.internal
+ip-10-250-221-159.eu-west-1.compute.internal
+ip-10-250-193-47.eu-west-1.compute.internal
+
+
+[k8s-cluster:children]
+kube-node
+kube-master
+
+
+[k8s-cluster:vars]
+apiserver_loadbalancer_domain_name="kubernetes-elb-tradeling-920100685.eu-west-1.elb.amazonaws.com"
+
