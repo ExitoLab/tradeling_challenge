@@ -10,6 +10,11 @@ RUN cd /home/node/app && npm install --only=production && npm install nodemon
 
 COPY . /home/node/app
 
+ENV PORT=5000
+ENV DATABASE_HOST=mongo
+ENV DATABASE=tododb
+ENV DB_PORT=27017
+
 EXPOSE 5000
 
 CMD ["npm", "start"]

@@ -1,3 +1,3 @@
 module.exports = {
-    mongoURI: 'mongodb://localhost/tododb'
+    mongoURI: 'mongodb://process.env.DATABASE_HOST:process.env.DB_PORT/process.env.DB_PORT'
 };

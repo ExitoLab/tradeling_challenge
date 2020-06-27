@@ -16,13 +16,6 @@ import exphbs from "express-handlebars";
 import path from "path";
 import express from "express";
 
-// mongoose.connect('mongodb://localhost/tododb'); 
-// // require('./models/User'); 
-// // require('./models/Todo');  
-
-// var routes = require('./routes/index');
-// var users = require('./routes/users');
-
 const app = express();
 // passport config
 config(passport);

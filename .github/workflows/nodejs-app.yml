@@ -2,13 +2,13 @@ name: WorkflowEngine - Build and Publish to Docker
 on: 
   push:
     paths:
-    - 'app/**'
-    - '.github/workflows/challenge.yml'
+    - '.github/workflows/nodejs-app.yml'
   schedule:
     - cron: '0 1 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
         node-version: [8.x, 10.x, 12.x, 13.x]
@@ -30,7 +30,17 @@ jobs:
         mongodb-replica-set: test-rs
 
     - run: npm install
+      working-directory: ./app
 
-    - run: npm test
-      env:
-        CI: true
+    - run: npm install nodemon
+      working-directory: ./app
+
+    - name: Publish to talk2toks/tradeling_challenge on Docker Hub 
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: talk2toks/tradeling_challenge
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        dockerfile: ./app/Dockerfile
+        context: ./app/
+        tag: "v1.0.0"
