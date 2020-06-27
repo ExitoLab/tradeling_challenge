@@ -4,14 +4,12 @@ RUN mkdir -p /home/node/app
 
 WORKDIR /home/node/app
 
-COPY package*.json /home/node/app/
+COPY package.json /home/node/app/
 
-RUN cd /home/node/app && npm install --only=production
+RUN cd /home/node/app && npm install --only=production && npm install nodemon
 
 COPY . /home/node/app
 
-RUN ls -la
-
-EXPOSE 3000
+EXPOSE 5000
 
 CMD ["npm", "start"]
