@@ -87,11 +87,7 @@ app.get('/', (req, res) => {
 
 app.get('/about', (req, res) => {
   res.render('about');
-});// use routes
-// app.use('/users', users);
-// app.use('/todos', todos);
-
-
+});
 
 // use routes
 app.use('/users', users);
