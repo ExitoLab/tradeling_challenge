@@ -11,11 +11,11 @@
 # Ignore private key
 *.tradeling-challenge
 
-/* Got this from kubespray public repo */
-kubespray/.vagrant
+/* Got this from 03-kubespray public repo */
+03-kubespray/.vagrant
 *.retry
 **/vagrant_ansible_inventory
-kubespray/temp
+03-kubespray/temp
 */.idea
 .tox
 .cache
@@ -24,29 +24,29 @@ kubespray/temp
 *.tfstate.backup
 .terraform/
 */contrib/terraform/aws/credentials.tfvars
-kubespray/ssh-bastion.conf
+03-kubespray/ssh-bastion.conf
 **/*.sw[pon]
 *~
-kubespray/vagrant/
+03-kubespray/vagrant/
 
 # Byte-compiled / optimized / DLL files
-kubespray/__pycache__/
+03-kubespray/__pycache__/
 *.py[cod]
 *$py.class
 
 # Distribution / packaging
 .Python
-kubespray/env/
-kubespray/build/
-kubespray/credentials/
-kubespray/develop-eggs/
-kubespray/dist/
-kubespray/downloads/
-kubespray/eggs/
+03-kubespray/env/
+03-kubespray/build/
+03-kubespray/credentials/
+03-kubespray/develop-eggs/
+03-kubespray/dist/
+03-kubespray/downloads/
+03-kubespray/eggs/
 .eggs/
-kubespray/parts/
-kubespray/sdist/
-kubespray/var/
+03-kubespray/parts/
+03-kubespray/sdist/
+03-kubespray/var/
 *.egg-info/
 .installed.cfg
 *.egg
@@ -58,17 +58,17 @@ kubespray/var/
 *.spec
 
 # Installer logs
-kubespray/pip-log.txt
-kubespraypip-delete-this-directory.txt
+03-kubespray/pip-log.txt
+03-kubespraypip-delete-this-directory.txt
 
 # Unit test / coverage reports
-kubespray/htmlcov/
+03-kubespray/htmlcov/
 .tox/
 .coverage
 .coverage.*
 .cache
-kubespray/nosetests.xml
-kubespray/coverage.xml
+03-kubespray/nosetests.xml
+03-kubespray/coverage.xml
 *,cover
 .hypothesis/
 
@@ -78,20 +78,20 @@ kubespray/coverage.xml
 
 # Django stuff:
 *.log
-kubespray/local_settings.py
+03-kubespray/local_settings.py
 
 # Flask stuff:
-kubespray/instance/
+03-kubespray/instance/
 .webassets-cache
 
 # Scrapy stuff:
 .scrapy
 
 # Sphinx documentation
-kubespray/docs/*
+03-kubespray/docs/*
 
 # PyBuilder
-kubespray/target/
+03-kubespray/target/
 
 # IPython Notebook
 .ipynb_checkpoints
@@ -100,26 +100,29 @@ kubespray/target/
 .python-version.vagrant
 *.retry
 **/vagrant_ansible_inventory
-kubespray/temp/*
+03-kubespray/temp/*
 .idea
 .tox
 .cache
 *.bak
 *.tfstate
 *.tfstate.backup
-kubespray/.terraform/
-kubespray/contrib/terraform/aws/credentials.tfvars
-kubespray/ssh-bastion.conf
+03-kubespray/.terraform/
+03-kubespray/contrib/terraform/aws/credentials.tfvars
+03-kubespray/ssh-bastion.conf
 **/*.sw[pon]
 *~
-kubespray/vagrant/
+03-/vagrant/
+
+03-kubespray/inventory/mycluster
 
 # Ansible inventory
-kubespray/inventory/*
-kubespray/inventory/hosts
-!kubespray/inventory/local
-!kubespray/inventory/sample
-kubespray/inventory/*/artifacts/
+03-kubespray/inventory/*
+03-kubespray/inventory/hosts
+!03-kubespray/inventory/local
+!03-kubespray/inventory/sample
+
+03-kubespray/inventory/*/artifacts/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
