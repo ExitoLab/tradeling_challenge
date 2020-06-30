@@ -114,8 +114,6 @@
 *~
 03-/vagrant/
 
-
-
 # Ansible inventory
 03-kubespray/inventory/*
 03-kubespray/inventory/hosts
