@@ -44,3 +44,10 @@ jobs:
         dockerfile: ./app/Dockerfile
         context: ./app/
         tag: "v1.0.0"
+
+      env:
+        CI: true
+        PORT: 5000
+        DATABASE_HOST: mongo
+        DATABASE: tododev
+        DB_PORT: 27017
