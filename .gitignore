@@ -114,7 +114,7 @@
 *~
 03-/vagrant/
 
-03-kubespray/inventory/mycluster
+
 
 # Ansible inventory
 03-kubespray/inventory/*
@@ -123,6 +123,7 @@
 !03-kubespray/inventory/sample
 
 03-kubespray/inventory/*/artifacts/
+03-kubespray/inventory*/mycluster/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
