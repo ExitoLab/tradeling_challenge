@@ -2,47 +2,37 @@
 
 ![Tradeling Logo]("https://c8n.tradeling.com/assets/svgs/tradeling-logo.svg)
 
-## Goal
-The challenge goal is to build a fully automated infrastructure and CI/CD solution for a simple web-based application.
-We prefer well-thought-out solutions over the quick-and-dirty kind. So take your time, if you need it. A rushed job is usually matched by a swift rejection.
+The challenge is very interesting, i was able to learn new thing in the process. I had an issue which took most of my time. EBS CSI Driver was not properly configured using kubespray and that should be a bug from kubespray. MongoDB and traefik was not configured until i solve the issue. 
 
-## Context
-We have developed a simple "todo" web application, it's inside the /app directory in this repo.
-The application main features are:
- - Users can sign up / sign in
- - Users can manage their Todo list  [ add / edit / list / delete]
+The volumes on AWS was not mounted and alot of things were not working until i finally resolved the issue. Storageclass was not recongized. 
 
-The application developed using node.js, and it requires mongoDb database for storing data. 
-
-## The Task
-The task is to deploy the application on AWS using Kubernetes.
-* You shouldn't use any ready K8 setup like EKS/AKS,etc. but for sure you can use any k8 automation tools like kops, kubeSpray, kubeadm,etc.
-* Make sure to not have any manual installations rather use configuration managers such as Ansible / Saltstack etc.
-* Review your solution and ensure it follows the best practices of building and deploying microservices.
-* Prepare a detailed document and/or instructions about what you have done. These documents must detail steps for other DevOps Engineer to understand how to deploy this application and maintain it.
-
-## Instructions
- - Using Terraform, build the infrastructure resources such as PVC, subnets, instances, elb, security group, etc., in the most optimal way with Production Grade security measures.
- - Build a Kubernetes Cluster in this VPC in an internal subnet, You can use any tool todo this.
- - You may need to modify the application source code or configuration in order to make the application running on the Kubernetes cluster, e.g. make use ENV variables in 12Factor style, create Dockerfile.
- - You need to update the application dependencies [node modules] to last stable and compilable version, please document how you achieved this part.
- - Build the Docker image using GitHub actions / Circle CI / Drone CI etc.
- - Build the Kubernetes deployments or Helm charts for the application.
- - Deploy the MongoDB on either Kubernetes or EC2 with High Availability mode (master/slave) and configure it with the Application.
- - Deploy the Ingress controller such as Traefik / Kong and configure the Ingress accordingly.
+I followed the link below in creating the EBS CSI Driver manuallly https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html 
 
 
-### How to proceed
-1) Clone this repository on your local machine and start a new local repository.
-2) Write the code.
-3) Write the documentation.
-4) The repository should contain the modified application and all other DevOps files and scripts in a separate folder
-4) Create a repo on Github and push your code on it
+The following things were achieved during the exercrise 
+
+1. Created kubernetes cluster using ansible, terraform and kubespray automation tool on aws 
+2. Build and push the nodejs image on dockerhub using Github Actions 
+3. Setup mongoDB replicaset on Kubernetes, configured pvc, storageclass, pv properly using helm
+4. Setup Traefik load balancer using helm 
+5. Setup Montoring on kubernetes using grafana, prometheus, alert manager using helm 
+6. Ensure there is an s3 buckets to keep all terraform state files 
+7. Screenshot can be found in 
+8. Link to readme file on k8 cluster 
+9. Link to readme file on nodejs app 
+10. Link to the screenshot 
+4. 
 
 
-## Extra Credit
-* Monitoring implementation
-* Database backup and restore
+I was unable to automate some of the helm deployment but i kept the scripts in the 06-scripts folder. Due to time constraint, i ran the helm deployments manually they were all successful. 
 
-## Support
-Feel free to contact us it-admin@tradeling.com for any questions.
+Presently, the bastion host do not have kubectl and helm. The kubernetes nodes are not accesible over the internet. To access the cluster, we have to go through the bastion host. 
+
+We can also use the bastion host as a proxy to ssh into any of the kube-master node. To ssh into the kubernetes master nodes run ` cd 03-kubespray && ssh -F ./ssh-bastion.conf centos@<kube-master-ipaddress> `
+
+Below is the process of configuring kubectl manually on the bastion host 
+
+
+
+
+However, if time permits me in the future i will automate all the manually process and see that everything works from 
