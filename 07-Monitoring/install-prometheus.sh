@@ -1,0 +1,1 @@
+ helm install k8-prometheus stable/prometheus-operator
