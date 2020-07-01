@@ -23,16 +23,36 @@ The following things were achieved during the exercrise
 10. Link to the screenshot 
 4. 
 
-
 I was unable to automate some of the helm deployment but i kept the scripts in the 06-scripts folder. Due to time constraint, i ran the helm deployments manually they were all successful. 
 
 Presently, the bastion host do not have kubectl and helm. The kubernetes nodes are not accesible over the internet. To access the cluster, we have to go through the bastion host. 
 
-We can also use the bastion host as a proxy to ssh into any of the kube-master node. To ssh into the kubernetes master nodes run ` cd 03-kubespray && ssh -F ./ssh-bastion.conf centos@<kube-master-ipaddress> `
+We can also use the bastion host as a proxy to ssh into any of the kube-master node. To ssh into the kubernetes master nodes run ` cd 03-kubespray && ssh -F ssh-bastion.conf centos@<kube-master-ipaddress> `
 
 Below is the process of configuring kubectl manually on the bastion host 
 
+After identifying the IP address, we can SSH to the first master. Get master ip from 
+` cat inventory/hosts `
 
+1. Run ` ssh  -F ssh-bastion.conf centos@<first master ip address>  `
+2. Run
+
+sudo su - 
+cd ~
+cd .kube
+cat config
+Highlight and copy the kubectl config
+
+ssh int the bastion host (jump server)
+Run 
+sudo su - 
+cd ~
+mkdir -p .kube
+cd .kube
+touch config
+vim config and paste the kubectl config file 
+
+After doing this, we will be able to run kubectl commands from our jump server
 
 
 However, if time permits me in the future i will automate all the manually process and see that everything works from 
