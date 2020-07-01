@@ -4,7 +4,7 @@
 
 The challenge is very interesting, i was able to learn new thing in the process. I had an issue which took most of my time. EBS CSI Driver was not properly configured using kubespray and that should be a bug from kubespray. MongoDB and traefik was not configured until i solve the issue. 
 
-The volumes on AWS was not mounted and alot of things were not working until i finally resolved the issue. Storageclass was not recongized. 
+The volumes on AWS was not mounted and alot of things were not working until i finally resolved the issue. Storageclass was not recognized.
 
 I followed the link below in creating the EBS CSI Driver manuallly https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html 
 
