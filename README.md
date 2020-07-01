@@ -17,11 +17,9 @@ The following things were achieved during the exercrise
 4. Setup Traefik load balancer using helm 
 5. Setup Montoring on kubernetes using grafana, prometheus, alert manager using helm 
 6. Ensure there is an s3 buckets to keep all terraform state files 
-7. Screenshot can be found in 
-8. Link to readme file on k8 cluster 
-9. Link to readme file on nodejs app 
-10. Link to the screenshot 
-4. 
+7. Screenshot can be found in https://github.com/ExitoLab/tradeling_challenge/tree/master/tradeling_challenge_screenshots
+8. Link to readme file on k8 cluster https://github.com/ExitoLab/tradeling_challenge/tree/master/03-kubespray
+9. Link to readme file on nodejs app  https://github.com/ExitoLab/tradeling_challenge/tree/master/app
 
 I was unable to automate some of the helm deployment but i kept the scripts in the 06-scripts folder. Due to time constraint, i ran the helm deployments manually they were all successful. 
 
@@ -37,6 +35,7 @@ After identifying the IP address, we can SSH to the first master. Get master ip 
 1. Run ` ssh  -F ssh-bastion.conf centos@<first master ip address>  `
 2. Run
 
+```ShellSession
 sudo su - 
 cd ~
 cd .kube
@@ -54,5 +53,6 @@ vim config and paste the kubectl config file
 
 After doing this, we will be able to run kubectl commands from our jump server
 
+```
 
 However, if time permits me in the future i will automate all the manually process and see that everything works from 
