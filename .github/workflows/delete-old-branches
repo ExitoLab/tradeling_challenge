@@ -3,7 +3,7 @@ name: Delete old branches
 on:
   schedule:
     # - cron: "0 0 * * *"
-      - cron: "* * * * *"
+      - cron: "*/5 * * * *"
 
 jobs:
   delete_branches:
