@@ -31,6 +31,6 @@ jobs:
           git for-each-ref --format="%(refname:short) %(committerdate:short)" refs/remotes | while read branch date; do
               if [[ $date < $TWO_MONTHS_AGO && $branch != "main" && $branch != "develop" ]]; then
                   echo "Deleting branch $branch"
-                  #git push origin --delete $branch
+                  git push origin --delete $branch
               fi
           done
