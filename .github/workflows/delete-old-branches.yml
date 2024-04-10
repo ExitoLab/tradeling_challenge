@@ -33,6 +33,7 @@ jobs:
                   echo "Deleting branch $branch"
                   git fetch --all
                   git branch --remote
-                  git push origin --delete $branch
+                  #git push origin --delete $branch
+                  git branch -D -r $branch
               fi
           done
