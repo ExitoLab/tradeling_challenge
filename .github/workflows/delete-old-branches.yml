@@ -14,8 +14,8 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Fetch all branches
-        run: git fetch --all
-
+        run: git fetch --all && git branch --remote
+        
       - name: List branches older than 2 months
         run: |
           TWO_MONTHS_AGO=$(date --date="2 months ago" +%Y-%m-%d)
@@ -32,6 +32,7 @@ jobs:
               if [[ $date < $TWO_MONTHS_AGO && $branch != "main" && $branch != "develop" ]]; then
                   echo "Deleting branch $branch"
                   git fetch --all
+                  git branch --remote
                   git push origin --delete $branch
               fi
           done
